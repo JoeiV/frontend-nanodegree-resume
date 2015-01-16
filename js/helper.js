@@ -76,16 +76,6 @@ $(document).click(function(loc) {
     logClicks(x,y);
 });
 
-function inName(name); {
-    name = name.trim().split(" ");
-    console.log(name);
-    name[1] = name[1].toUpperCase();
-    name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
-    
-    return name[0] + " " + name[1];
-}
-
-
 
 /*
 This is the fun part. Here's where we generate the custom Google Map for the website.
@@ -167,8 +157,9 @@ function initializeMap() {
 
     // hmmmm, I wonder what this is about...
     google.maps.event.addListener(marker, 'click', function() {
-      // your code goes here!
+      infoWindow.open(map,marker);
     });
+    
 
     // this is where the pin actually gets added to the map.
     // bounds.extend() takes in a map location object
