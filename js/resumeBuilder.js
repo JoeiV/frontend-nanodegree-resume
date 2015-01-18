@@ -5,10 +5,10 @@ var bio = {
         "mobile" : "412-555-5555",
         "email" : "Joei_Leonard@yahoo.com",
         "github" : "JoeiV",
-        "location" : "Washington, DC"
+        "location" : "Washington DC"
     },
-    "welcomeMessage" : "Welcome to Joei's Resume",
-    "bioPic" : "images/selfie.jpg",
+    "welcomeMessage" : "To be better everyday",
+    "bioPic" : "images/profile_pic.jpg",
     "skills": ["HTML/CSS", "JavaScript", "Windows | Mac | Linux"]
 };
 
@@ -47,6 +47,13 @@ bio.display = function() {
     }
 };
 
+bio.display();
+
+
+
+//internationalize button
+$('#main').append(internationalizeButton);
+
 
 //Work Section
 var work = {
@@ -61,7 +68,7 @@ var work = {
         {
             "employer" : "L3 Communications",
             "title" : "Analyst",
-            "location" : "United Kingdom",
+            "location" : "London, UK",
             "dates" : "2010 - 2011",
             "description" : "Analyze selected material as directed"
         }
@@ -87,6 +94,8 @@ work.display = function() {
             .append(formattedDescription);
     });
 };
+
+work.display();
 
 
 //Education Section
@@ -167,61 +176,47 @@ education.display = function() {
     }
 };
 
+education.display();
+
 
 //Project Section
 var projects = {
     "projects" : [
         {
-            "title" : "project 1",
+            "title" : "My Example Project",
             "dates" : "2014",
-            "description" : "project 1 description",
-            "images" : "image url"
+            "description" : "Example Project Summary (Note:  not my project, but I hope to make equally cool things one day)",
+            "images" : "images/exampleImage1.jpg"
         },
         {
-           "title" : "project 1",
+            "title" : "Another Example Project",
             "dates" : "2014",
-            "description" : "project 1 description",
-            "images" : "image url"
+            "description" : "Example Project 2 Summary (Note:  not my project, but I hope to make equally cool things one day)",
+            "images" : "images/exampleImage2.jpg"
         }]
 };
 
 
+//display projects
 projects.display = function() {
-    projects.projects.forEach(function(project) {
+    for(project in projects.projects) {
         $("#projects").append(HTMLprojectStart);
 
-        var formattedProjectTitle = HTMLprojectTitle.replace("%data%", project.title);
-        var formattedProjectDates = HTMLprojectDates.replace("%data%", project.dates);
-        var formattedProjectDescription = HTMLprojectDescription.replace("%data%", project.description);
+        var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+        var formattedProjectDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+        var formattedProjectDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+        var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[project].images);
+        
         $(".project-entry:last").append(formattedProjectTitle)
             .append(formattedProjectDates)
-            .append(formattedProjectDescription);
-
-        if (project.images.length > 0) {
-            project.images.forEach(function(image) {
-                var formattedProjectImage = HTMLprojectImage.replace("%data%", image);
-                $(".project-entry:last").append(formattedProjectImage);
-            });
+            .append(formattedProjectDescription)
+            .append(formattedProjectImage);
         }
-    });
 };
 
-
-function inName(name) {
-  name = name.trim().split(" ");
-  name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
-  name[1] = name[1].toUpperCase();
-  return name[0] + " " + name[1];
-}
-
-
-//display all funcitons
-bio.display();
-work.display();
-education.display();
 projects.display();
 
-//internationalize button
-$('#main').append(internationalizeButton);
+
+
 //google maps
 $("#mapDiv").append(googleMap);

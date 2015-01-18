@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8">
   <title>Resume</title>
-  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <link href="css/style.css" rel="stylesheet" type="text/css"></link>
   <script src="js/jQuery.js"></script>
   <script src="js/helper.js"></script>
   <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
-
   <meta name="viewport" content="width=device-width">
 </head>
+
 <body unresolved>
-    <div id="main">
-      <div id="header" class="center-content clearfix">
+  <div id="main"> 
+    <div id="header" class="center-content clearfix">
       <ul id="topContacts" class='flex-box'></ul>
     </div>
     <div style='clear: both;'></div>
@@ -35,16 +35,10 @@
     </div>
   </div>
 
-  <!--
-  The next line tells the browser where to download the JavaScript file you'll be
-  writing. In resumeBuilder.js, you'll be writing code that builds the resume
-  dynamically when this website, index.html, is opened.
-  -->
   <script src="js/resumeBuilder.js"></script>
 
-
   <script type="text/javascript">
-
+    
     if(document.getElementsByClassName('flex-item').length === 0) {
       document.getElementById('topContacts').style.display = 'none';
     }
@@ -62,10 +56,10 @@
     }
     if(document.getElementsByClassName('flex-item').length === 0) {
       document.getElementById('letsConnect').style.display = 'none';
-    }
-    if(document.getElementById('map') === null) {
-      document.getElementById('mapDiv').style.display = 'none';
-    }
+    <!-- }
+    //if(document.getElementById('map') === null) {
+      //document.getElementById('mapDiv').style.display = 'none';
+    } -->
   </script>
 </body>
 </html>

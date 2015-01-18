@@ -1,3 +1,7 @@
+/*
+These are HTML strings. As part of the course, you'll be using JavaScript functions
+replace the %data% placeholder text you see in them.
+*/
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
 var HTMLheaderRole = '<span>%data%</span><hr/>';
 
@@ -50,10 +54,20 @@ The International Name challenge in Lesson 2 where you'll create a function that
 */
 $(document).ready(function() {
   $('button').click(function() {
-    var iName = inName(name) || function(){};
+    var iName = inName(bio.name) || function(){};
     $('#name').html(iName);  
   });
 });
+
+
+//Internationalize Name function
+function inName(name) {
+  name = name.trim().split(" ");
+  name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
+  name[1] = name[1].toUpperCase();
+  return name[0] + " " + name[1];
+}
+
 
 /*
 The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.
@@ -71,10 +85,11 @@ function logClicks(x,y) {
 }
 
 $(document).click(function(loc) {
-    var x = loc.pageX;
+  var x = loc.pageX;
     var y = loc.pageY;
     logClicks(x,y);
 });
+
 
 
 /*
@@ -98,7 +113,7 @@ function initializeMap() {
 
   // This next line makes `map` a new Google Map JavaScript Object and attaches it to
   // <div id="map">, which is appended as part of an exercise late in the course.
-  map = new google.maps.Map(document.querySelector('#map'), mapOptions);
+  map = new google.maps.Map(document.querySelector('#mapDiv'), mapOptions);
 
 
   /*
@@ -159,7 +174,6 @@ function initializeMap() {
     google.maps.event.addListener(marker, 'click', function() {
       infoWindow.open(map,marker);
     });
-    
 
     // this is where the pin actually gets added to the map.
     // bounds.extend() takes in a map location object
@@ -216,7 +230,10 @@ function initializeMap() {
 
 }
 
-// Calls the initializeMap() function when the page loads
+/*
+Uncomment the code below when you're ready to implement a Google Map!
+*/
+
 window.addEventListener('load', initializeMap);
 
 window.addEventListener('resize', function(e) {
