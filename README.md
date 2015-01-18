@@ -1,8 +1,3 @@
-List of Resources Used: 
-css-tricks.com/ 
-https://kremalicious.com/make-cool-and-clever-text-effects-with-css-text-shadow/
-
-
 
 ## How do I complete this project?
 
