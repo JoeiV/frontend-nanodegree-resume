@@ -1,3 +1,9 @@
+List of Resources Used: 
+css-tricks.com/ 
+https://kremalicious.com/make-cool-and-clever-text-effects-with-css-text-shadow/
+
+
+
 ## How do I complete this project?
 
 1. Go to the [Javascript Basics course](https://www.udacity.com/course/ud804) and select "View Course Materials."
